@@ -1,0 +1,4 @@
+modName = TrueDarkness
+displayName = True Darkness (1920x1080)
+author = HK_BLAU
+version = 0.1

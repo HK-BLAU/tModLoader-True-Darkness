@@ -1,0 +1,1 @@
+Mod that greatly inhibits vision during boss fights. Has 4 difficulty settings, altering the vision radius. Also has a checkbox to enable permanent darkness. Only works on 1920x1080. Good luck!
