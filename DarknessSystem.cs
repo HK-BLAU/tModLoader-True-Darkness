@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using log4net;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -22,7 +24,7 @@ namespace DarknessSystem
         private static readonly Dictionary<int, string> TexturePaths = new Dictionary<int, string>
         {
             { 1, "TrueDarkness/darkness_gradient_DEATH" },
-            { 2, "TrueDarkness/darkness_gradient_hard" },
+            { 2, "TrueDarkness/darkness_gradient_hard_nerfed" },
             { 3, "TrueDarkness/darkness_gradient_medium" },
             { 4, "TrueDarkness/darkness_gradient_easy" }
         };
@@ -86,6 +88,11 @@ namespace DarknessSystem
         public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
         {
             int index = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Inventory"));
+
+            if (layers.FindIndex(layer => layer.Name.Equals("Vanilla: NPC / Sign Dialog")) != -1)
+            {
+                index = layers.FindIndex(layer => layer.Name.Equals("Vanilla: NPC / Sign Dialog"));
+            }
             if (index != -1)
             {
                 layers.Insert(index, new LegacyGameInterfaceLayer(
